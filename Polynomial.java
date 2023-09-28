@@ -9,7 +9,7 @@ public class Polynomial{
 	
 	public Polynomial() {
 		this.coe = new double[] {0};
-		this.exp = new exp[] {0};
+		this.exp = new int[] {0};
 			}
 	
 	public Polynomial(double []coe, int[] exp) {
@@ -17,7 +17,7 @@ public class Polynomial{
 		this.exp= exp;
 	}
 	
-	public Polynomial(File poly) throw Exception {
+	public Polynomial(File poly) throws Exception {
 		BufferedReader input=new BufferedReader(new FileReader(poly));
 		String line= input.readLine();
 		String[] terms = line.split("(?=[-+])");
@@ -53,14 +53,15 @@ public class Polynomial{
 	
 	public int Highest_exponent() {
 		// if exp is an empty array return -1 
-		if (exp.length==0) {
+		if (this.exp.length==0) {
 			return -1;
 		}
+		
 		int max=0;
 		
-		for (int i=0; i < exp.length; i++) {
-			if(exp[i] > max) {
-				max=exp[i];
+		for (int i=0; i < this.exp.length; i++) {
+			if(this.exp[i] > max) {
+				max=this.exp[i];
 			}
 		}
 		return max;
